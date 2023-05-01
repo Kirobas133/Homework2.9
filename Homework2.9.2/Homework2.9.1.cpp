@@ -96,24 +96,26 @@ public:
 		return *this;
 		
 }
-	Fraction& operator ++ (int) {
+	Fraction operator ++ (int) {
+		Fraction frac = *this;
 		numerator_ = numerator_ + denominator_;
 		NOM(*this);
-		return *this;
+		return frac;
 	}
 	Fraction& operator -- () {
 		this->numerator_ = numerator_ - denominator_;
 		NOM(*this);
 		return *this;
 	}
-	Fraction& operator -- (int) {
+	Fraction operator -- (int) {
+		Fraction frac = *this;
 		this->numerator_ = this->numerator_ - this->denominator_;
 		NOM(*this);
-		return *this;
+		return frac;
 	}
 	Fraction operator - () {
-		Fraction f(-numerator_, denominator_);
-		return f;
+		Fraction frac(-numerator_, denominator_);
+		return frac;
 	}
 
 	friend std::ostream& operator << (std:: ostream& out, Fraction& right);
